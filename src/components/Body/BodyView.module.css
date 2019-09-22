@@ -1,0 +1,21 @@
+.BodyView {
+    align-content: center;
+    margin: 10px 10px;
+}
+
+.Buttons {
+    margin: 15px auto;
+}
+
+.GraphView {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+@media (max-width: 900px) {
+    .GraphView {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

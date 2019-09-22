@@ -1,0 +1,14 @@
+.ExerciseElement {
+    background-color: #ccc;
+}
+
+.ExerciseElement button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    margin: 5px 5px;
+}
+
+.ExerciseElement button:hover {
+    background-color: #aaa;
+}

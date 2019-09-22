@@ -1,0 +1,63 @@
+.Button {
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    margin: 4px 2px;
+    display: inline-block;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+
+.Button:Disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.Success {
+    background-color: white;
+    border: 2px solid #5C9210;
+    color: #5C9210;
+}
+
+.Success:hover:enabled {
+    background-color: #5C9210;
+    color: white;
+    transform:scale(1.1,1.1);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.Danger {
+    background-color: white;
+    color: #d40700;
+    border: 2px solid #d40700;
+}
+
+.Danger:hover:enabled {
+    background-color: #d40700;
+    color: white;
+    transform:scale(1.1,1.1);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.Primary {
+    background-color: white;
+    color: #0044ff;
+    border: 2px solid #0044ff;
+}
+
+.Primary:hover:enabled {
+    background-color: #0044ff;
+    color: white;
+    transform:scale(1.1,1.1);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.ContentButton {
+    padding: 3px 3px;
+}

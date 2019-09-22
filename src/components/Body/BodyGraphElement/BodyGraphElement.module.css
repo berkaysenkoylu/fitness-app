@@ -1,0 +1,12 @@
+.GraphElement {
+    width: 500px;
+    margin: 10px auto;
+    box-shadow: 2px 3px 4px #aaa;
+}
+
+@media (max-width: 500px) {
+    .GraphElement {
+        width: 380px;
+        margin: 10px auto;
+    }
+}

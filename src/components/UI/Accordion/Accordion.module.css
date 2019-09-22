@@ -1,0 +1,101 @@
+/* Style the buttons that are used to open and close the accordion panel */
+.Accordion {
+  background-color:  rgb(86, 192, 224);
+  color: #fff;
+  cursor: pointer;
+  padding: 18px;
+  width: 80%;
+  margin: 5px auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 3px #ccc;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.Accordion:hover {
+  background-color: rgb(41, 113, 134);
+}
+
+.Active {
+  background-color: rgb(41, 113, 134);
+}
+
+/* Style the accordion content title */
+.Title {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Style the accordion chevron icon */
+.Icon {
+  margin-left: auto;
+  transition: transform 0.6s ease;
+}
+
+/* Style to rotate icon when state is active */
+.Rotate {
+  transform: rotate(90deg);
+}
+
+/* Style the accordion content panel. Note: hidden by default */
+.ContentWrap {
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+/* Style the accordion content text */
+.Content {
+  display: inline-block;
+  padding: 5px;
+  text-align: left;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.ButtonContainer {
+  display: flex;
+  margin: 5px auto;
+}
+
+.Stretcher {
+  flex: 1 1 auto;
+}
+
+
+/* .Accordion {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    text-align: left;
+    border: none;
+    font-family: inherit;
+    outline: none;
+    transition: 0.4s;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 5px auto;
+}
+
+.Accordion:hover {
+    background-color: #bbb;
+}
+
+.AccordionContent {
+    padding: 0 18px;
+    background-color: white;
+    color: black;
+    display: none;
+    overflow: hidden;
+}
+
+.Open {
+    display: block;
+} */

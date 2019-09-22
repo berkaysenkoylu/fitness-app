@@ -1,0 +1,40 @@
+.Loader {
+    margin-top: 15px;
+    float: left;
+    width: 18px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid rgb(47, 131, 228);
+    margin-left: -2px;
+    animation: slide 0.6s infinite linear;
+}
+
+.Loader:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;  
+}
+
+.Loader:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.Loader:nth-child(2n+1) {
+    animation-delay: 0.3s;
+}
+
+.LoaderContainer {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 30px;
+    width: 25%;
+    height: 140px;
+}
+
+@keyframes slide {
+    50% {
+        margin-top: 25px;
+    }
+}

@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from './components/Home/Home';
 import Body from './containers/Body/Body';
-import Exercise from './containers/Exercise/Exercise';
+import Exercise from './containers/Exercise/Exercise'
 import Authentication from './containers/Authentication/Authentication';
 import Logout from './containers/Authentication/Logout/Logout';
 import Layout from './hoc/Layout/Layout';
@@ -21,7 +21,6 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path='/auth' component={Authentication} />
-        <Route path='/exercise' component ={Exercise} />
         <Route path='/' exact component={Home} />
         <Redirect to='/' />
       </Switch>
@@ -32,6 +31,7 @@ class App extends Component {
         <Switch>
           <Route path='/logout' component={Logout} />
           <Route path='/auth' component={Authentication} />
+          <Route path='/exercise' component ={Exercise} />
           <Route path='/body' component={Body} />
           <Route path='/' exact component={Home} />
           <Redirect to='/' />

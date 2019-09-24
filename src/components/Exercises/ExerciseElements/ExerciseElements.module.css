@@ -1,19 +1,30 @@
 .ExerciseElements {
     align-content: center;
-    margin: 10px auto;
     display: grid;
     grid-template-rows: none;
-    grid-gap: 1em;
 }
 
 .ExercisePool {
     width: 80%;
     padding: 10px;
-    margin: auto;
+    margin: 10px auto;
     height: 300px;
     background-color: #ddd;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
+    grid-auto-rows: minmax(min-content, max-content);
 }
 
+.ExerciseElementAdd {
+    display: inline-flex;
+    justify-content: space-around;
+    vertical-align: middle;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .ExercisePool {
+        grid-template-columns: 1fr;
+    }
+}

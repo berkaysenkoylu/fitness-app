@@ -1,0 +1,27 @@
+table, th, td { 
+    border: 1px solid black 
+}
+
+th, td {
+    padding: 5px;
+}
+
+tr:hover {
+    background-color: #ccc;
+}
+
+table {
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+
+.Table {
+    display: inline-block;
+    box-shadow: 2px 2px 2px #bbb;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin: 10px auto;
+    font-family: inherit;
+    overflow-x: auto;
+    width: 80%;
+}

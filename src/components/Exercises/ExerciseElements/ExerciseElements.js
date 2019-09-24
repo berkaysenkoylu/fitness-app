@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
+import axiosExercise from '../../../axios-exercise';
 import classes from './ExerciseElements.module.css';
 import ExerciseElement from './ExerciseElement/ExerciseElement';
 import Input from '../../UI/Input/Input';
@@ -15,10 +17,41 @@ const ExerciseElements = (props) => {
         value: ''
     });
 
-    const [exercises, setAddExercise] = useState([]);
+    const [exercises, setAddExercise] = useState([]); // This is a showcase array (for front end)
+    const [exercisePool, setExercisePool] = useState([]); // For initialization and deletion (This is an array that gets populated from backend)
 
-    // TODO: At the beginning, populate the exercises array from the backend
+    // TODO: At the beginning, populate the exercises array from the backend (DONE ?)
+    useEffect(() => {
+        fetchData();
+    }, [props.token]);
 
+    const fetchData = () => {
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + props.token
+            }
+        };
+
+        let fetchedData = [];
+        axiosExercise.get('', config).then(response => {
+            fetchedData = response.data.result.map(data => {
+                return {
+                    id: data._id,
+                    userId: data.userId,
+                    name: data.name
+                }
+            });
+
+            // TODO (DONE ?)
+            let initialExercises = [];
+            setExercisePool(fetchedData);
+            initialExercises = fetchedData.map(data => {
+                return data.name;
+            });
+            setAddExercise(initialExercises);
+        });
+        
+    }
 
     // When a form field has been removed, re-add the exercise residing in that to the pool
     useEffect(() => {
@@ -51,6 +84,21 @@ const ExerciseElements = (props) => {
         setNewExercise(copiedForm);
 
         // http request (post)
+        const exercise = {
+            name: newExercise.value
+        };
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + props.token
+            }
+        };
+        axiosExercise.post('', exercise, config).then(response => {
+            // TODO: This is a problem
+            //fetchData();
+            console.log(response);
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     const onRemoveExercise = (exerciseName) => {
@@ -63,14 +111,34 @@ const ExerciseElements = (props) => {
         setAddExercise(copiedExercisesArr);
 
         // http request (delete)
+        // Get the id from poolInventory and send it to the backend
+        let id = null;
+        let exerciseToBeDeleted = {};
+        exerciseToBeDeleted = exercisePool.filter(ex => ex.name === exerciseName);
+        id = exerciseToBeDeleted[0].id;
+        let config = {
+            headers: {
+                'Authorization': 'Bearer ' + props.token
+            }
+        };
+        axiosExercise.delete('/' + id, config).then(result => {
+            fetchData();
+        });
     }
 
-    const onSendFormFields = (event, exercise) => {
+    const onSendFormFields = (event, exerciseName) => {
         event.preventDefault();
 
-        props.onAddFormControl(exercise);
+        props.onAddFormControl(exerciseName);
 
-        onRemoveExercise(exercise);
+        // Remove the given exercise from the array
+        let copiedExercisesArr = [...exercises];
+
+        copiedExercisesArr = copiedExercisesArr.filter(exercise => {
+            return exercise !== exerciseName
+        });
+
+        setAddExercise(copiedExercisesArr);
     }
 
     let exercisePoolContent = null;
@@ -88,23 +156,29 @@ const ExerciseElements = (props) => {
 
     return (
         <div className={classes.ExerciseElements}>
-            <div className={classes.ExercisePool}>
-                {exercisePoolContent}
-            </div>
             <div>
                 <h2>Add a new exercise to the pool</h2>
-                <div>
+                <div className={classes.ExerciseElementAdd}>
                     <Input 
                         elementType={newExercise.elementType}
                         elementConfig={newExercise.elementConfig}
                         value={newExercise.value}
                         changed={(event) => onNewExerciseInputChangedHandler(event)}
                     />
+                    <Button btnType="Success" type="ContentButton" clicked={onAddExerciseHandler} disabled={newExercise.value.length <= 0}>ADD</Button>
                 </div>
-                <Button btnType="Success" type="ContentButton" clicked={onAddExerciseHandler} disabled={newExercise.value.length <= 0}>ADD</Button>
+            </div>
+            <div className={classes.ExercisePool}>
+                {exercisePoolContent}
             </div>
         </div>
     )
 }
 
-export default ExerciseElements;
+const mapStateToProps = state => {
+    return {
+        token: state.userToken
+    };
+};
+
+export default connect(mapStateToProps, null)(ExerciseElements);

@@ -1,0 +1,44 @@
+.FormElement {
+    display: grid;
+    align-items: center;
+    box-shadow: 2px 2px 2px #bbb;
+    border: 1px solid #eee;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    margin: 5px auto;
+}
+
+.FormElement input {
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    font: inherit;
+    padding: 6px 10px;
+    box-sizing: border-box;
+}
+
+.FormElement input:focus {
+    outline: none;
+    background-color: #ccc;
+}
+
+.RemoveButton {
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    background-color: rgb(158, 35, 35);
+    padding: 6px 10px;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .FormElement {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

@@ -22,6 +22,13 @@ const navigationItems = (props) => {
                     <NavigationItem link="/body/add-data" exact>Add data</NavigationItem>
                 </div>
             </span>
+            <span className={classes.Dropdown}>
+                <NavigationItem link="#">Exercise <i className="fa fa-angle-down"></i></NavigationItem>
+                <div className={classes.DropdownItems}>
+                    <NavigationItem link="/exercise" exact>View</NavigationItem>
+                    <NavigationItem link="/exercise/add-exercise" exact>Add exercise</NavigationItem>
+                </div>
+            </span>
             <NavigationItem link="/logout" exact>Logout</NavigationItem>
         </Auxillary>
     );

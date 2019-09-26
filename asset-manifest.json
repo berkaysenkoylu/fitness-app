@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/fitness-app/static/css/main.3cdf0f43.chunk.css",
+    "main.js": "/fitness-app/static/js/main.89eed5bf.chunk.js",
+    "main.js.map": "/fitness-app/static/js/main.89eed5bf.chunk.js.map",
+    "runtime~main.js": "/fitness-app/static/js/runtime~main.e53bad42.js",
+    "runtime~main.js.map": "/fitness-app/static/js/runtime~main.e53bad42.js.map",
+    "static/js/2.03fb14cd.chunk.js": "/fitness-app/static/js/2.03fb14cd.chunk.js",
+    "static/js/2.03fb14cd.chunk.js.map": "/fitness-app/static/js/2.03fb14cd.chunk.js.map",
+    "index.html": "/fitness-app/index.html",
+    "precache-manifest.076fcac60870e213c3c5a212a48ccfe1.js": "/fitness-app/precache-manifest.076fcac60870e213c3c5a212a48ccfe1.js",
+    "service-worker.js": "/fitness-app/service-worker.js",
+    "static/css/main.3cdf0f43.chunk.css.map": "/fitness-app/static/css/main.3cdf0f43.chunk.css.map",
+    "static/media/logo.png": "/fitness-app/static/media/logo.84e6a04a.png",
+    "static/media/Home.module.css": "/fitness-app/static/media/yoga-nature.6e09f410.jpg"
+  }
+}

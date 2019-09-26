@@ -10,6 +10,7 @@
     margin: 10px auto;
     height: 300px;
     background-color: #ddd;
+    overflow-y: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;

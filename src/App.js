@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     this.props.tryToAutoLogin();
   }
-  
+
   render() {
     let routes = (
       <Switch>

@@ -17,7 +17,7 @@ const store = createStore(authReducer, composeEnhancer(applyMiddleware(thunk)));
 
 const app = (
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="fitness-app">
             <App />
         </BrowserRouter>
     </Provider>

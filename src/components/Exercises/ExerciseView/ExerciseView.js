@@ -13,6 +13,7 @@ const ExerciseView = (props) => {
                 'Authorization': 'Bearer ' + props.token
             }            
         };
+
         axiosExerciseRoutine.get('', config).then(response => {
             let fetchedData = [];
 
@@ -25,7 +26,12 @@ const ExerciseView = (props) => {
                 };
             });
 
+            // Sort the exercise routine data
+            fetchedData.sort((a, b) => (a.date > b.date) ? -1 : ((b.date > a.date) ? 1 : 0));
+
             setExerciseRoutineData(fetchedData);
+        }).catch(error => {
+            console.log(error);
         });
     }, [props.token]);
 
@@ -156,7 +162,7 @@ const ExerciseView = (props) => {
             </table>
         )
     }
-
+    
     return (
         <div>
             <h2>Exercise Routine History</h2>

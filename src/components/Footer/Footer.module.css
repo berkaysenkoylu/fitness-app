@@ -1,0 +1,8 @@
+.Footer { 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-family: inherit;
+    background-color: rgb(18, 166, 211);
+}

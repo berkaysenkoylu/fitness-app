@@ -52,14 +52,14 @@ export const logout = () => {
     return {
         type: actionTypes.LOGOUT
     };
-}
+};
 
 export const checkAuthTimeout = (expirationTime) => {
     return dispatch => {
         setTimeout(() => {
             dispatch(logout());
         }, expirationTime * 1000);
-    };
+    }
 };
 
 export const authCheckState = () => {
@@ -75,15 +75,13 @@ export const authCheckState = () => {
             if(expirationDate > new Date()){
                 const userId = localStorage.getItem('userId');
                 dispatch(loginSuccess(token, userId));
-                // console.log(expirationDate);
-                // console.log(expirationDate - new Date().getSeconds());
-                dispatch(checkAuthTimeout((expirationDate - new Date().getSeconds())));
+                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
             } else {
                 dispatch(logout());
             }
         }
     }
-}
+};
 
 
 // ========= LOGIN RELATED ACTIONS ========= //
@@ -99,7 +97,7 @@ export const loginSuccess = (token, id) => {
         userId: id,
         token: token
     };
-}
+};
 
 export const loginFail = (error) => {
     return {
